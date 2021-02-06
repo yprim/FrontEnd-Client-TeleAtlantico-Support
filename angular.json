@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FrontEnd-Client-TeleAtlantico-Support"
+    }
+  },
+  "defaultProject": "FrontEnd-Client-TeleAtlantico-Support",
+  "cli": {
+    "analytics": "3a9e25d6-2cfd-42f4-89ac-b7c71fac794b"
+  }
 }
