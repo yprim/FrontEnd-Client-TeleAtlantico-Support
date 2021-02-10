@@ -1,1 +1,106 @@
-<p>register works!</p>
+<div class="container">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Crear Cuenta</h4>
+            <hr>
+            <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="createUser()">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('name')" class="form-control" formControlName="name" name="" placeholder="Nombre" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i>  </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('firstSurname')" formControlName="firstSurname" name="" class="form-control" placeholder="Primer Apellido" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('secondSurname')" formControlName="secondSurname" name="" class="form-control" placeholder="Segundo Apellido" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('address')" formControlName="address" name="" class="form-control" placeholder="Dirección Exacta" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('email')" formControlName="email" name="" class="form-control" placeholder="Correo Electrónico" type="email">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+		                <option value="1">+506</option>
+		            </select>
+                    <input [class.is-invalid]="valueNoValid('phone')" formControlName="phone" name="" class="form-control" placeholder="Contacto Principal" type="number" min="0" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+		                <option value="1">+506</option>
+		            </select>
+                    <input [class.is-invalid]="valueNoValid('secondContact')" formControlName="secondContact" name="" class="form-control" placeholder="Segundo Contacto" type="number" min="0" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input [class.is-invalid]="valueNoValid('password')" formControlName="password" class="form-control" placeholder="Crear Contraseña" type="password">
+                </div>
+
+                <div class="form-group input-group">
+                    <label for="">Seleccione sus servicios:</label>
+                    <hr>
+                </div>
+
+                <div class="form-group input-group">
+
+                    <div class="form-check m-1">
+                        <input [class.is-invalid]="valueNoValid('telephone')" formControlName="telephone" class="form-check-input" type="checkbox" id="telephone">
+                        <label class="form-check-label" for="telephone">
+                          Teléfono
+                        </label>
+                    </div>
+                    <div class="form-check m-1">
+                        <input formControlName="mobilePhone" class="form-check-input" type="checkbox" id="mobilePhone">
+                        <label class="form-check-label" for="mobilePhone">
+                          Celular
+                        </label>
+                    </div>
+
+                    <div class="form-check m-1">
+                        <input formControlName="television" class="form-check-input" type="checkbox" id="television">
+                        <label class="form-check-label" for="television">
+                          Television
+                        </label>
+                    </div>
+
+                    <div class="form-check m-1">
+                        <input formControlName="internet" class="form-check-input" type="checkbox" id="internet">
+                        <label class="form-check-label" for="internet">
+                          Internet
+                        </label>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Crear Cuenta  </button>
+                </div>
+                <p class="text-center">¿Ya tienes cuenta? <a href="">Ingresar</a> </p>
+            </form>
+        </article>
+    </div>
+</div>

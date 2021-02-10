@@ -1,18 +1,15 @@
-export class User{
+export class Comment{
 
-    id: number;
-    name: string;
-    firstSurname:string;
-    secondSurname:string;
-    addres:string;
-    phone:string;
-    secondContact:string;
-    email:string;
-    password:string;
-    televison: 0 | 1;
-    mobilePhone: 0 | 1;
-    telephone : 0 | 1;
-    internet : 0 | 1;
+    id: number=0;
+    reportNumber: string;
+    address:string;
+    contactPhone:string;
+    contactEmail:string;
+    status:string;
+    supportUserAsigned:string;
+    description:string;
+    service:string;
+    idUser:number;
     creationDate: Date;
     creationUser: Date;
     updateDate?: Date;

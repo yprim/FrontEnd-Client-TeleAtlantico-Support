@@ -1,15 +1,15 @@
 export class User{
 
-    id: number;
+    id: number=0;
     name: string;
     firstSurname:string;
     secondSurname:string;
-    addres:string;
+    address:string;
     phone:string;
     secondContact:string;
     email:string;
     password:string;
-    televison: 0 | 1;
+    television: 0 | 1;
     mobilePhone: 0 | 1;
     telephone : 0 | 1;
     internet : 0 | 1;
