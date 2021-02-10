@@ -68,7 +68,7 @@
                 <div class="form-group input-group">
 
                     <div class="form-check m-1">
-                        <input [class.is-invalid]="valueNoValid('telephone')" formControlName="telephone" class="form-check-input" type="checkbox" id="telephone">
+                        <input formControlName="telephone" class="form-check-input" type="checkbox" id="telephone">
                         <label class="form-check-label" for="telephone">
                           Teléfono
                         </label>
@@ -93,7 +93,11 @@
                           Internet
                         </label>
                     </div>
+                    <div *ngIf="!serviceValid" class="form-check m-1 btn btn-outline-danger">
+                        Seleccione al menos un servicio
+                    </div>
                 </div>
+
 
                 <hr>
                 <div class="form-group">

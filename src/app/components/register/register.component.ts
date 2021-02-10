@@ -19,14 +19,14 @@ export class RegisterComponent implements OnInit {
     email : ['',[ Validators.required, Validators.email]],
 
     phone : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
-    secondContact : ['',[ Validators.required, Validators.minLength(8)]],
+    secondContact : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
     
     password : ['',[ Validators.required, Validators.minLength(8)]],
    
-    television : ['',[ Validators.required]],
-    mobilePhone : ['',[ Validators.required]],
-    telephone : ['',[ Validators.required]],
-    internet : ['',[ Validators.required]],
+    television : false,
+    mobilePhone : false,
+    telephone : false,
+    internet : false,
     
   });
 
@@ -37,7 +37,9 @@ export class RegisterComponent implements OnInit {
 
   createUser(){
 
-    
+    if(!this.serviceValid){
+      return;
+    }
 
     if(this.registerForm.invalid){
       return;
@@ -51,6 +53,22 @@ export class RegisterComponent implements OnInit {
   valueNoValid(value:string) {  
     return this.registerForm.get(value).invalid && this.registerForm.get(value).touched
   }
-  
+
+  get serviceValid() { 
+
+    if(this.registerForm.get('television').value){
+      return true;
+    }
+    if(this.registerForm.get('mobilePhone').value){
+      return true;
+    }
+    if(this.registerForm.get('telephone').value){
+      return true;
+    }
+    if(this.registerForm.get('internet').value){
+      return true;
+    }
+    return false;
+  }
   
 }
