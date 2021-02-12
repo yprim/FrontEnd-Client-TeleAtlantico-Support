@@ -1,7 +1,14 @@
+<article class="mb-3" style="background-color: #C3EDE9;">
+    <div class="card-body text-center">
+        <h3 class="text-white mt-3 blk"> Crear Cuenta </h3>
+    </div>
+    <br><br>
+</article>
+
 <div class="container">
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">
-            <h4 class="card-title mt-3 text-center">Crear Cuenta</h4>
+            <h4 class="card-title mt-3 text-center"></h4>
             <hr>
             <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="createUser()">
                 <div class="form-group input-group">
@@ -83,7 +90,7 @@
                     <div class="form-check m-1">
                         <input formControlName="television" class="form-check-input" type="checkbox" id="television">
                         <label class="form-check-label" for="television">
-                          Television
+                          Televisión
                         </label>
                     </div>
 
@@ -101,9 +108,9 @@
 
                 <hr>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Crear Cuenta  </button>
+                    <button type="submit" class="btn btn-info btn-block"> Crear Cuenta  </button>
                 </div>
-                <p class="text-center">¿Ya tienes cuenta? <a href="">Ingresar</a> </p>
+                <p class="text-center">¿Ya tienes cuenta? <a href="" routerLink="/login">Ingresar</a> </p>
             </form>
         </article>
     </div>

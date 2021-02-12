@@ -1,6 +1,6 @@
 export class User{
 
-    id: number=0;
+    id: number;
     name: string;
     firstSurname:string;
     secondSurname:string;
@@ -17,6 +17,10 @@ export class User{
     creationUser: Date;
     updateDate?: Date;
     updateUser?: string;
+
+    
+
+    
 
 
 
