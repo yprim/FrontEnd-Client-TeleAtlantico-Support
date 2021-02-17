@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +32,7 @@ export class RegisterComponent implements OnInit {
     
   });
 
-  constructor(private fb:FormBuilder) { } 
+  constructor(private fb:FormBuilder,private router:Router) { } 
 
   ngOnInit(): void {
   }
@@ -46,6 +48,27 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log(this.registerForm.value);
+
+    let timerInterval
+    Swal.fire({
+      title: 'Registro Exitoso',
+      html: 'Inicie sesión',
+      timer: 1000,
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+  
+        }, 50)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        this.router.navigateByUrl('/login');
+      }
+    })
 
 
   }    

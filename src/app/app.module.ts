@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueComponent } from './components/issue/issue.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
+import { IssuesComponent } from './components/issues/issues.component';
+import { IssueModalComponent } from './components/issue-modal/issue-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     IssueComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    IssuesComponent,
+    IssueModalComponent
   ],
   imports: [
     BrowserModule,

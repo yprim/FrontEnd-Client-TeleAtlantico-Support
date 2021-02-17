@@ -4,12 +4,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { IssueComponent } from './components/issue/issue.component';
 import { HomeComponent } from './components/home/home.component';
+import { IssuesComponent } from './components/issues/issues.component';
 
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login'   , component: LoginComponent },
-  { path: 'issue'   , component: IssueComponent },
+  { path: 'create-issue'   , component: IssueComponent },
+  { path: 'issues'   , component: IssuesComponent },
   { path: 'home'   , component: HomeComponent },
   { path: '**', redirectTo: 'login' }
 ];

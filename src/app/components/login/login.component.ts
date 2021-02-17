@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -27,11 +28,36 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
 
+    if(this.loginForm.invalid){
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      email.classList.add("is-invalid");
+      password.classList.add("is-invalid");
+      return;
+    }
+    
+
+  let timerInterval
+  Swal.fire({
+    title: 'Ingreso Exitoso',
+    html: 'Bienvenido',
+    timer: 1000,
+    didOpen: () => {
+      Swal.showLoading()
+      timerInterval = setInterval(() => {
+
+      }, 50)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      this.router.navigateByUrl('/home');
+    }
+  })
     console.log(this.loginForm.value);   
-
-    this.router.navigateByUrl('/home');
-     
-
   }
 
 }

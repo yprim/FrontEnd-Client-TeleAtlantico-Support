@@ -1,0 +1,83 @@
+<div [class.hidden]="modalService.hideModal" class="background-modal">
+    <div id="responsive-modal" class="modal fade show modal-style" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Detalle Solicitud</h4>
+                    <button (click)="closeModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <section class="p-2" id="issue">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <form autocomplete="off" [formGroup]="issueForm">
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('reportNumber')" class="form-control" formControlName="reportNumber" [value]="issueForm.value.reportNumber" type="text" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('address')" class="form-control" formControlName="address" [value]="issueForm.value.address" type="text" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('contactPhone')" class="form-control" formControlName="contactPhone" [value]="issueForm.value.contactPhone" type="number" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('email')" class="form-control" formControlName="email" [value]="issueForm.value.email" type="email" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('status')" formControlName="status" class="form-control" [value]="issueForm.value.status" type="text" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('description')" formControlName="description" class="form-control" placeholder="Descripción" type="text" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('service')" formControlName="service" class="form-control" placeholder="service" type="text" readonly>
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <input [class.is-invalid]="valueNoValid('supportUserAsigned')" formControlName="supportUserAsigned" class="form-control" placeholder="supportUserAsigned" type="text" readonly>
+                                </div>
+
+                                <hr>
+                                <!-- <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block"> Crear Solicitud  </button>
+                                </div> -->
+                            </form>
+                            <hr>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
