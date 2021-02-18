@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
     
   });
 
-  constructor(private fb:FormBuilder,private router:Router) { } 
+  constructor(private fb:FormBuilder,private router:Router, private clientService:ClientService) { } 
 
   ngOnInit(): void {
   }
@@ -47,7 +48,11 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    console.log(this.registerForm.value);
+    this.clientService.addClient(this.registerForm.value)
+    .subscribe( resp =>{
+      console.log(resp);
+      
+    });
 
     let timerInterval
     Swal.fire({
@@ -66,7 +71,7 @@ export class RegisterComponent implements OnInit {
     }).then((result) => {
       /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
-        this.router.navigateByUrl('/login');
+       // this.router.navigateByUrl('/login');
       }
     })
 

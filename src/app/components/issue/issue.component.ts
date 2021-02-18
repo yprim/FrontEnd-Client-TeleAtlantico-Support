@@ -1,7 +1,8 @@
 import { getLocaleDateTimeFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { User } from '../../models/user.model';
+import { Client } from '../../models/client.model';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-issue',
@@ -11,7 +12,7 @@ import { User } from '../../models/user.model';
 export class IssueComponent implements OnInit {
 
   
-  public user:User []=[];
+  public clients:Client []=[];
 
   public issueForm = this.fb.group({
     
@@ -34,11 +35,21 @@ export class IssueComponent implements OnInit {
 
   });
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,
+              private clientService:ClientService) { 
 
   }
 
   ngOnInit(): void {
+
+    this.clientService.listClients()
+    .subscribe( (clients:any) => {
+      this.clients = clients;
+      console.log(this.clients);
+      
+    })
+
+
   }
 
   registerIssue(){
