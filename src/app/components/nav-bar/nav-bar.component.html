@@ -1,26 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #C3EDE9;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #C3EDE9;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="" routerLink="/home">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="" routerLink="/create-issue">Crear solicitud</a>
+                </li>
 
+                <li class="nav-item mr-5">
+                    <a class="nav-link mr-5" href="" routerLink="/issues">Historial de solicitudes</a>
+                </li>
+                <li class="nav-item mr-5">
+                    <a class="nav-link ml-5 mr-5"></a>
+                </li>
+                <li class="nav-item mr-5">
+                    <a class="nav-link ml-5 mr-5"></a>
+                </li>
+                <li class="nav-item mr-5">
+                    <a class="nav-link ml-5 mr-5"></a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="ml-5 nav-link" href="" routerLink="/login">Salir</a>
+                </li>
 
-    <a class="navbar-brand" href="" routerLink="/home">GLUE COMPANY</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+            </ul>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="" routerLink="/create-issue">Crear solicitud</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="" routerLink="/issues">Historial de solicitudes</a>
-            </li>
-
-
-
-        </ul>
-
+        </div>
     </div>
 </nav>
