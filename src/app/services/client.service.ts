@@ -22,6 +22,7 @@ export class ClientService {
 
   public auth:any;
   public client:Client;
+  userToken: string = '';
 
   constructor( private http:HttpClient ) { }
 
@@ -41,8 +42,6 @@ listClients(){
 
 
  addClient( client: Client ){
-    console.log(client);
-    
     const url = `${base_url}/client/add`;
     return this.http.post<any>(url, JSON.stringify(client), httpOptions).pipe(
       tap((client) => console.log('added client')),
@@ -50,8 +49,28 @@ listClients(){
     );
   }
 
-  login( formData: LoginForm){
+  login( client: Client ){
+    const url = `${base_url}/client/login`;
+    return this.http.post<any>(url, JSON.stringify(client), httpOptions).pipe(
+      tap((client) => console.log('login client')),
+      catchError(this.handleError<any>('login')),
+      map(resp =>{
+        if(resp){
+          this.saveToken(resp.id);        }
+          return resp;
+      })
+    );
   }
+
+  isLogin(): boolean{
+    return parseInt( this.userToken) > 0;
+  }
+
+  private saveToken(idClient: string){
+    this.userToken = idClient;
+    localStorage.setItem('token', this.userToken);
+ }
+
 
   
   logout(){

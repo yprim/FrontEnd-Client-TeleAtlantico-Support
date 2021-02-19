@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ClientService } from '../../services/client.service';
+import { Client } from '../../models/client.model';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
+  client:Client = new Client();
+
 
   public loginForm = this.fb.group({
     email : ['',[ Validators.required, Validators.email]],
@@ -17,7 +21,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(  private fb:FormBuilder,
-                private router:Router) { }
+                private router:Router,
+                private clientService:ClientService) { }
 
   ngOnInit(): void {
   }
@@ -28,36 +33,44 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
 
-    if(this.loginForm.invalid){
+     if(this.loginForm.invalid){
       let email = document.getElementById("email");
       let password = document.getElementById("password");
       email.classList.add("is-invalid");
       password.classList.add("is-invalid");
       return;
     }
-    
 
-  let timerInterval
-  Swal.fire({
-    title: 'Ingreso Exitoso',
-    html: 'Bienvenido',
-    timer: 1000,
-    didOpen: () => {
-      Swal.showLoading()
-      timerInterval = setInterval(() => {
+  this.clientService.login(this.loginForm.value)
+    .subscribe( client =>{
+       if(client)   {
+        this.client = client;
+        this.modal('/home','Bienvenido: '+ this.client.name);            
+       }else{
+        this.modal('','Error al autentificar')
+       }   
+    });       
+  }
 
-      }, 50)
-    },
-    willClose: () => {
-      clearInterval(timerInterval)
-    }
-  }).then((result) => {
-    /* Read more about handling dismissals below */
-    if (result.dismiss === Swal.DismissReason.timer) {
-      this.router.navigateByUrl('/home');
-    }
-  })
-    console.log(this.loginForm.value);   
+  modal( url:string | '', message:String){
+    let timerInterval
+        Swal.fire({
+        title: message,
+        html: '',
+        timer: 1000,
+        didOpen: () => {
+          Swal.showLoading()
+          timerInterval = setInterval(() => {
+          }, 50)
+        },
+        willClose: () => {
+        clearInterval(timerInterval)
+        }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            this.router.navigateByUrl(url);
+          }
+        })     
   }
 
 }
