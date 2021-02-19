@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Client } from '../models/client.model';
-import { LoginForm } from '../interfaces/login.interface';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -22,7 +21,7 @@ export class ClientService {
 
   public auth:any;
   public client:Client;
-  userToken: string = '';
+  token: string = '';
 
   constructor( private http:HttpClient ) { }
 
@@ -37,6 +36,14 @@ listClients(){
   return this.http.get(url).pipe(
     map(this.extractData),
     catchError(this.handleError<any>('list clients'))
+    );
+}
+
+getClientById(id:number){
+  const url = `${base_url}/client/${id}`;
+  return this.http.get(url).pipe(
+    map(this.extractData),
+    catchError(this.handleError<any>('get client'))
     );
 }
 
@@ -56,30 +63,29 @@ listClients(){
       catchError(this.handleError<any>('login')),
       map(resp =>{
         if(resp){
-          this.saveToken(resp.id);        }
+          this.saveToken(resp.id);
+          this.client = resp;
+        }
           return resp;
       })
     );
   }
 
   isLogin(): boolean{
-    return parseInt( this.userToken) > 0;
+    return parseInt( this.token) > 0;
   }
 
   private saveToken(idClient: string){
-    this.userToken = idClient;
-    localStorage.setItem('token', this.userToken);
+    this.token = idClient;
+    localStorage.setItem('token', this.token);
  }
-
-
   
-  logout(){
-  }
+logout(){
+  localStorage.removeItem('token');
+  this.client=null;
+}
 
-  
- 
-
-  private handleError<T> (operation = 'operation', result?: T) {
+private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
       // TODO: send the error to remote logging infrastructure
@@ -92,6 +98,5 @@ listClients(){
       return of(result as T);
     };
   }
-
 
 }

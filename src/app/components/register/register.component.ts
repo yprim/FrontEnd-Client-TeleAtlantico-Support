@@ -16,17 +16,17 @@ export class RegisterComponent implements OnInit {
 
   public registerForm = this.fb.group({
     id:0,
-    name : ['Angula',[ Validators.required]],
-    first_surname : ['Primero',[ Validators.required]],
-    second_surname : ['Segundo',[ Validators.required]],
+    name : ['',[ Validators.required]],
+    first_surname : ['',[ Validators.required]],
+    second_surname : ['',[ Validators.required]],
    
-    address : ['Turri',[ Validators.required]],
-    email : ['correo@correo.com',[ Validators.required, Validators.email]],
+    address : ['',[ Validators.required]],
+    email : ['',[ Validators.required, Validators.email]],
 
-    phone : ['88888888',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
-    second_contact : ['22222222',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
+    phone : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
+    second_contact : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
     
-    password : ['12345678',[ Validators.required, Validators.minLength(8)]],
+    password : ['',[ Validators.required, Validators.minLength(8)]],
    
     television : false,
     mobile_phone : false,

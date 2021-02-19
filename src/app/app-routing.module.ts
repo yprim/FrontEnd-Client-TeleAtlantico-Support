@@ -6,6 +6,7 @@ import { IssueComponent } from './components/issue/issue.component';
 import { HomeComponent } from './components/home/home.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'create-issue'   , component: IssueComponent,canActivate:[ AuthGuard] },
   { path: 'issues'   , component: IssuesComponent,canActivate:[ AuthGuard] },
   { path: 'home'   , component: HomeComponent,canActivate:[ AuthGuard] },
+  { path: 'profile'   , component: ProfileComponent,canActivate:[ AuthGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 

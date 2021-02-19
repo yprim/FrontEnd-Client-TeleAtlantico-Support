@@ -10,9 +10,14 @@
                     <a class="nav-link" href="" routerLink="/create-issue">Crear solicitud</a>
                 </li>
 
-                <li class="nav-item mr-5">
-                    <a class="nav-link mr-5" href="" routerLink="/issues">Historial de solicitudes</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="" routerLink="/issues">Historial de solicitudes</a>
                 </li>
+
+                <li class="nav-item mr-5">
+                    <a class="nav-link mr-5" href="" routerLink="/profile">Perfil</a>
+                </li>
+
                 <li class="nav-item mr-5">
                     <a class="nav-link ml-5 mr-5"></a>
                 </li>
@@ -23,7 +28,7 @@
                     <a class="nav-link ml-5 mr-5"></a>
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="ml-5 nav-link" href="" routerLink="/login">Salir</a>
+                    <a class="ml-5 nav-link" href="" (click)="logout()">Salir</a>
                 </li>
 
             </ul>

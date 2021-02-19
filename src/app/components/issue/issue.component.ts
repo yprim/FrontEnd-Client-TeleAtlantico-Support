@@ -11,9 +11,6 @@ import { ClientService } from '../../services/client.service';
 })
 export class IssueComponent implements OnInit {
 
-  
-  public clients:Client []=[];
-
   public issueForm = this.fb.group({
     
     id: 0,
@@ -41,14 +38,6 @@ export class IssueComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.clientService.listClients()
-    .subscribe( (clients:any) => {
-      this.clients = clients;
-      console.log(this.clients);
-      
-    })
-
 
   }
 

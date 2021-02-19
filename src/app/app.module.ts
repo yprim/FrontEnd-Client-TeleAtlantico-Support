@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { IssueModalComponent } from './components/issue-modal/issue-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     HomeComponent,
     IssuesComponent,
-    IssueModalComponent
+    IssueModalComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
