@@ -50,9 +50,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-      console.log(this.registerForm.get("name").value);
-    
-
       this.newClient.name=this.registerForm.get("name").value;
       this.newClient.first_surname=this.registerForm.get("first_surname").value;
       this.newClient.second_surname=this.registerForm.get("second_surname").value;
@@ -66,7 +63,8 @@ export class RegisterComponent implements OnInit {
       this.registerForm.get("internet")?this.newClient.internet=1:this.newClient.internet=0;
       this.registerForm.get("mobile_phone")?this.newClient.mobile_phone=1:this.newClient.mobile_phone=0;
       this.registerForm.get("telephone")?this.newClient.telephone= 1:this.newClient.telephone= 0;
-      this.newClient.creation_User="user";
+      
+      this.newClient.creation_User='new client';
       this.newClient.creation_Date= new Date();
 
     this.clientService.addClient(this.newClient)
@@ -90,7 +88,6 @@ export class RegisterComponent implements OnInit {
         clearInterval(timerInterval)
       }
     }).then((result) => {
-      /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
        this.router.navigateByUrl('/login');
       }
