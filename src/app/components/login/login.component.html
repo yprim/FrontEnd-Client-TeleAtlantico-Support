@@ -13,7 +13,7 @@
             <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="loginUser()">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
                     </div>
                     <input id="email" [class.is-invalid]="valueNoValid('email')" class="form-control" formControlName="email" placeholder="Correo" type="email">
                 </div>
@@ -27,7 +27,7 @@
 
                 <hr>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block"> Crear Cuenta  </button>
+                    <button type="submit" class="btn btn-info btn-block"> Ingresar  </button>
                 </div>
                 <p class="text-center">¿Aún no tienes cuenta? <a routerLink="/register" href="">Registrarse</a> </p>
             </form>

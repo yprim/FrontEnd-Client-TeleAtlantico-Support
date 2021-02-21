@@ -16,17 +16,17 @@ export class RegisterComponent implements OnInit {
 
   public registerForm = this.fb.group({
     id:0,
-    name : ['',[ Validators.required]],
-    first_surname : ['',[ Validators.required]],
-    second_surname : ['',[ Validators.required]],
+    name : ['Test',[ Validators.required]],
+    first_surname : ['Test',[ Validators.required]],
+    second_surname : ['Test',[ Validators.required]],
    
-    address : ['',[ Validators.required]],
-    email : ['',[ Validators.required, Validators.email]],
+    address : ['Test',[ Validators.required]],
+    email : ['test@test.com',[ Validators.required, Validators.email]],
 
-    phone : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
-    second_contact : ['',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
+    phone : ['12587452',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
+    second_contact : ['12587452',[ Validators.required, Validators.pattern("^[0-9]{8}$")]],
     
-    password : ['',[ Validators.required, Validators.minLength(8)]],
+    password : ['12345678',[ Validators.required, Validators.minLength(8)]],
    
     television : false,
     mobile_phone : false,
@@ -50,9 +50,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-      console.log(this.registerForm.get("name").value);
-    
-
       this.newClient.name=this.registerForm.get("name").value;
       this.newClient.first_surname=this.registerForm.get("first_surname").value;
       this.newClient.second_surname=this.registerForm.get("second_surname").value;
@@ -62,42 +59,26 @@ export class RegisterComponent implements OnInit {
       this.newClient.password=this.registerForm.get("password").value;
       this.newClient.address=this.registerForm.get("address").value;
 
-      this.registerForm.get("television")?this.newClient.television=1:this.newClient.television=0;
-      this.registerForm.get("internet")?this.newClient.internet=1:this.newClient.internet=0;
-      this.registerForm.get("mobile_phone")?this.newClient.mobile_phone=1:this.newClient.mobile_phone=0;
-      this.registerForm.get("telephone")?this.newClient.telephone= 1:this.newClient.telephone= 0;
-      this.newClient.creation_User="user";
+      console.log(this.registerForm.get("television"));
+      
+      this.registerForm.get("television").value ? (this.newClient.television=1) : (this.newClient.television=0);
+      this.registerForm.get("internet").value?this.newClient.internet=1:this.newClient.internet=0;
+      this.registerForm.get("mobile_phone").value?this.newClient.mobile_phone=1:this.newClient.mobile_phone=0;
+      this.registerForm.get("telephone").value?this.newClient.telephone= 1:this.newClient.telephone= 0;
+      
+      this.newClient.creation_User='new client';
       this.newClient.creation_Date= new Date();
+
 
     this.clientService.addClient(this.newClient)
     .subscribe( resp =>{
-      console.log(resp);
-      
+      if(resp > 0){
+        this.modal('/login','Registro Exitoso');
+      }else{
+        this.modal('','Error. Intente de nuevo');
+      }      
     });
-
-    let timerInterval
-    Swal.fire({
-      title: 'Registro Exitoso',
-      html: 'Inicie sesión',
-      timer: 1000,
-      didOpen: () => {
-        Swal.showLoading()
-        timerInterval = setInterval(() => {
-  
-        }, 50)
-      },
-      willClose: () => {
-        clearInterval(timerInterval)
-      }
-    }).then((result) => {
-      /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
-       this.router.navigateByUrl('/login');
-      }
-    })
-
-
-  }    
+  }  
 
   valueNoValid(value:string) {  
     return this.registerForm.get(value).invalid && this.registerForm.get(value).touched
@@ -119,5 +100,27 @@ export class RegisterComponent implements OnInit {
     }
     return false;
   }
+
+  modal( url:string | '', message:String){
+    let timerInterval
+        Swal.fire({
+        title: message,
+        html: '',
+        timer: 1000,
+        didOpen: () => {
+          Swal.showLoading()
+          timerInterval = setInterval(() => {
+          }, 50)
+        },
+        willClose: () => {
+        clearInterval(timerInterval)
+        }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            this.router.navigateByUrl(url);
+          }
+        })     
+  }
+
   
 }
