@@ -17,7 +17,7 @@ export class IssueComponent implements OnInit {
   public issueForm = this.fb.group({
     id: 0, 
     id_user: this.client.id,    
-    report_number : this.newReportNumber,
+    report_number : this.newReportNumber(),
     address : this.client.address,    
     contact_phone : this.client.phone,
     contact_email : this.client.email,
@@ -50,7 +50,7 @@ export class IssueComponent implements OnInit {
         this.modal('','Registro Exitoso');
         this.issueForm.get('description').setValue('');
         this.issueForm.get('service').setValue(0);
-        this.issueForm.get('report_number').setValue(this.newReportNumber);
+        this.issueForm.get('report_number').setValue(this.newReportNumber());
       }else{
         this.modal('','Error, Intente de nuevo')
       }
