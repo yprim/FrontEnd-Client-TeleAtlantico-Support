@@ -1,21 +1,21 @@
 export class Client{
 
-    public id: number;
-    public name: string;
-    public first_surname:string;
-    public second_surname:string;
-    public address:string;
-    public phone:string;
-    public second_contact:string;
-    public email:string;
-    public password:string;
-    public television: 0 | 1;
-    public mobile_phone: 0 | 1;
-    public telephone : 0 | 1;
-    public internet : 0 | 1;
-    public creation_Date: Date;
-    public creation_User: string;
-    public update_Date?: Date;
-    public update_User?: string;
+    public Id: number;
+    public Name: string;
+    public FirstSurname:string;
+    public SecondSurname:string;
+    public Address:string;
+    public Phone:string;
+    public SecondContact:string;
+    public Email:string;
+    public Password:string;
+    public Television: 0 | 1;
+    public MobilePhone: 0 | 1;
+    public Telephone : 0 | 1;
+    public Internet : 0 | 1;
+    public CreationDate: Date;
+    public CreationUser: string;
+    public UpdateDate?: Date;
+    public UpdateUser?: string;
     
 }

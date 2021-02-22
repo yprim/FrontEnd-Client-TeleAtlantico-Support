@@ -50,24 +50,24 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-      this.newClient.name=this.registerForm.get("name").value;
-      this.newClient.first_surname=this.registerForm.get("first_surname").value;
-      this.newClient.second_surname=this.registerForm.get("second_surname").value;
-      this.newClient.phone=this.registerForm.get("phone").value;
-      this.newClient.second_contact=this.registerForm.get("second_contact").value;
-      this.newClient.email=this.registerForm.get("email").value;
-      this.newClient.password=this.registerForm.get("password").value;
-      this.newClient.address=this.registerForm.get("address").value;
+      this.newClient.Name=this.registerForm.get("name").value;
+      this.newClient.FirstSurname=this.registerForm.get("first_surname").value;
+      this.newClient.SecondSurname=this.registerForm.get("second_surname").value;
+      this.newClient.Phone=this.registerForm.get("phone").value;
+      this.newClient.SecondContact=this.registerForm.get("second_contact").value;
+      this.newClient.Email=this.registerForm.get("email").value;
+      this.newClient.Password=this.registerForm.get("password").value;
+      this.newClient.Address=this.registerForm.get("address").value;
 
       console.log(this.registerForm.get("television"));
       
-      this.registerForm.get("television").value ? (this.newClient.television=1) : (this.newClient.television=0);
-      this.registerForm.get("internet").value?this.newClient.internet=1:this.newClient.internet=0;
-      this.registerForm.get("mobile_phone").value?this.newClient.mobile_phone=1:this.newClient.mobile_phone=0;
-      this.registerForm.get("telephone").value?this.newClient.telephone= 1:this.newClient.telephone= 0;
+      this.registerForm.get("television").value ? (this.newClient.Television=1) : (this.newClient.Television=0);
+      this.registerForm.get("internet").value?this.newClient.Internet=1:this.newClient.Internet=0;
+      this.registerForm.get("mobile_phone").value?this.newClient.MobilePhone=1:this.newClient.MobilePhone=0;
+      this.registerForm.get("telephone").value?this.newClient.Telephone= 1:this.newClient.Telephone= 0;
       
-      this.newClient.creation_User='new client';
-      this.newClient.creation_Date= new Date();
+      this.newClient.CreationUser='new client';
+      this.newClient.CreationDate= new Date();
 
 
     this.clientService.addClient(this.newClient)
