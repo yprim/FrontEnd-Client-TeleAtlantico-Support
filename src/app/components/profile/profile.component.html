@@ -19,21 +19,21 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>{{client.id}}</th>
-                        <td>{{client.name}}</td>
-                        <td>{{client.first_surname}}</td>
-                        <td>{{client.second_surname}}</td>
-                        <th>{{client.address}}</th>
-                        <td>{{client.phone}}</td>
-                        <td>{{client.second_contact}}</td>
-                        <td>{{client.email}}</td>
+                        <th>{{client.Id}}</th>
+                        <td>{{client.Name}}</td>
+                        <td>{{client.FirstSurname}}</td>
+                        <td>{{client.SecondSurname}}</td>
+                        <th>{{client.Address}}</th>
+                        <td>{{client.Phone}}</td>
+                        <td>{{client.SecondContact}}</td>
+                        <td>{{client.Email}}</td>
                         <td>
-                            <h6 *ngIf="client.telephone == 1"> Telefono, </h6>
-                            <h6 *ngIf="client.internet == 1"> Internet, </h6>
-                            <h6 *ngIf="client.mobile_phone == 1"> Célular, </h6>
-                            <h6 *ngIf="client.television == 1"> Televisión </h6>
+                            <h6 *ngIf="client.Telephone == 1"> Telefono, </h6>
+                            <h6 *ngIf="client.Internet == 1"> Internet, </h6>
+                            <h6 *ngIf="client.MobilePhone == 1"> Célular, </h6>
+                            <h6 *ngIf="client.Television == 1"> Televisión </h6>
                         </td>
-                        <td>{{client.creation_Date | date }}</td>
+                        <td>{{client.CreationDate | date }}</td>
 
                     </tr>
                 </tbody>
