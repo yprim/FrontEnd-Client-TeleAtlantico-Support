@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     .subscribe( client =>{
        if(client)   {
         this.client = client;
-        this.modal('/home','Bienvenido: '+ this.client.name);            
+        this.modal('/home','Bienvenido: '+ this.client.Name);            
        }else{
         this.modal('','Error al autentificar')
        }   
