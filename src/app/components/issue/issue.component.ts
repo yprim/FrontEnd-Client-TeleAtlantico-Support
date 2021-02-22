@@ -15,18 +15,18 @@ export class IssueComponent implements OnInit {
   client:Client=this.clientService.client;
 
   public issueForm = this.fb.group({
-    id: 0, 
-    id_user: this.client.id,    
-    report_number : this.newReportNumber(),
-    address : this.client.address,    
-    contact_phone : this.client.phone,
-    contact_email : this.client.email,
-    status : 'Ingresado', 
-    support_user_asigned : '',    
-    service :[0,[ Validators.required]],  
-    description : ['',[ Validators.required]],
-    creation_Date: new Date(),
-    creation_User: this.client.id
+    Id: 0, 
+    IdUser: this.client.Id,    
+    ReportNumber : this.newReportNumber(),
+    Address : this.client.Address,    
+    ContactPhone : this.client.Phone,
+    ContactEmail : this.client.Email,
+    Status : 'Ingresado', 
+    SupportUserAsigned : '',    
+    Service :[0,[ Validators.required]],  
+    Description : ['',[ Validators.required]],
+    CreationDate: new Date(),
+    CreationUser: this.client.Id
   });
 
   constructor(private fb:FormBuilder,
@@ -48,9 +48,9 @@ export class IssueComponent implements OnInit {
     .subscribe( resp =>{
       if(resp > 0){
         this.modal('','Registro Exitoso');
-        this.issueForm.get('description').setValue('');
-        this.issueForm.get('service').setValue(0);
-        this.issueForm.get('report_number').setValue(this.newReportNumber());
+        this.issueForm.get('Description').setValue('');
+        this.issueForm.get('Service').setValue(0);
+        this.issueForm.get('ReportNumber').setValue(this.newReportNumber());
       }else{
         this.modal('','Error, Intente de nuevo')
       }
@@ -78,13 +78,13 @@ export class IssueComponent implements OnInit {
         }
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            //to do
+            //this.router.navigateByUrl(url);
           }
         })     
   }
 
   newReportNumber(){
-    return this.client.id +'-'+ new Date().getTime();
+    return this.client.Id +'-'+ new Date().getTime();
   }
 
 }

@@ -14,20 +14,20 @@ export class IssueModalComponent implements OnInit {
 
   public issueForm = this.fb.group({
     
-    id: 0,
-    idUser: 0,
+    Id: 0,
+    IdUser: 0,
     
-    reportNumber : new Date().getTime()+'-'+ 'userId',
-    address : 'Turri',    
-    contactPhone : 88888888,
-    email : 'djndj@hoiijndsf.com',  
+    ReportNumber : new Date().getTime()+'-'+ 'userId',
+    Address : 'Turri',    
+    ContactPhone : 88888888,
+    Email : 'djndj@hoiijndsf.com',  
  
-    status : 'Ingresado', 
+    Status : 'Ingresado', 
 
-    supportUserAsigned : 'Gretel',
+    SupportUserAsigned : 'Gretel',
     
-    service :['Telefono',[ Validators.required]],  
-    description : ['Algo',[ Validators.required]],    
+    Service :['Telefono',[ Validators.required]],  
+    Description : ['Algo',[ Validators.required]],    
 
 
 
