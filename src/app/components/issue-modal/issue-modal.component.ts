@@ -14,20 +14,20 @@ export class IssueModalComponent implements OnInit {
 
   public issueForm = this.fb.group({
     
-    Id: 0,
-    IdUser: 0,
+    id: 0,
+    idUser: 0,
     
-    ReportNumber : new Date().getTime()+'-'+ 'userId',
-    Address : 'Turri',    
-    ContactPhone : 88888888,
-    Email : 'djndj@hoiijndsf.com',  
+    reportNumber : new Date().getTime()+'-'+ 'userId',
+    address : 'Turri',    
+    contactPhone : 88888888,
+    email : 'djndj@hoiijndsf.com',  
  
-    Status : 'Ingresado', 
+    status : 'Ingresado', 
 
-    SupportUserAsigned : 'Gretel',
+    supportUserAsigned : 'Gretel',
     
-    Service :['Telefono',[ Validators.required]],  
-    Description : ['Algo',[ Validators.required]],    
+    service :['Telefono',[ Validators.required]],  
+    description : ['Algo',[ Validators.required]],    
 
 
 
@@ -40,8 +40,6 @@ export class IssueModalComponent implements OnInit {
     this.modalService.closeModal();
   }
 
-  valueNoValid(value:string) {  
-    return this.issueForm.get(value).invalid && this.issueForm.get(value).touched
-  }
+ 
 
 }

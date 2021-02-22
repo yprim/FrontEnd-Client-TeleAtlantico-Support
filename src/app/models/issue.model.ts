@@ -1,17 +1,17 @@
 export class Issue{
 
-    Id: number=0;
-    Report_number: string;
-    Address:string;
-    ContactPhone:string;
-    ContactEmail:string;
-    Status:string;
-    Description:string;
-    Service:string;
-    IdUser:number;
-    CreationDate: Date;
-    CreationUser: Date;
-    SupportUser_asigned?:string;
-    UpdateDate?: Date;
-    UpdateUser?: string;
+    id: number=0;
+    report_number: string;
+    address:string;
+    contactPhone:string;
+    contactEmail:string;
+    status:string;
+    description:string;
+    service:string;
+    idUser:number;
+    creationDate: Date;
+    creationUser: Date;
+    supportUser_asigned?:string;
+    updateDate?: Date;
+    updateUser?: string;
 }

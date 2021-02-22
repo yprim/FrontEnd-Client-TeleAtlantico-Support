@@ -15,18 +15,18 @@ export class IssueComponent implements OnInit {
   client:Client=this.clientService.client;
 
   public issueForm = this.fb.group({
-    Id: 0, 
-    IdUser: this.client.Id,    
-    ReportNumber : this.newReportNumber(),
-    Address : this.client.Address,    
-    ContactPhone : this.client.Phone,
-    ContactEmail : this.client.Email,
-    Status : 'Ingresado', 
-    SupportUserAsigned : '',    
-    Service :[0,[ Validators.required]],  
-    Description : ['',[ Validators.required]],
-    CreationDate: new Date(),
-    CreationUser: this.client.Id
+    id: 0, 
+    idUser: this.client.id,    
+    reportNumber : this.newReportNumber(),
+    address : this.client.address,    
+    contactPhone : this.client.phone,
+    contactEmail : this.client.email,
+    status : 'Ingresado', 
+    supportUserAsigned : '',    
+    service :[0,[ Validators.required]],  
+    description : ['',[ Validators.required]],
+    creationDate: new Date(),
+    creationUser: this.client.id
   });
 
   constructor(private fb:FormBuilder,
@@ -44,13 +44,21 @@ export class IssueComponent implements OnInit {
       return;
     }
 
+    if( this.issueForm.get("service").value == 0){
+      return;
+    }
+
+    if( (this.issueForm.get("description").value).trim() == ''){
+      return;
+    }
+
     this.issueService.addIssue(this.issueForm.value)
     .subscribe( resp =>{
       if(resp > 0){
         this.modal('','Registro Exitoso');
-        this.issueForm.get('Description').setValue('');
-        this.issueForm.get('Service').setValue(0);
-        this.issueForm.get('ReportNumber').setValue(this.newReportNumber());
+        this.issueForm.get('description').setValue('');
+        this.issueForm.get('service').setValue(0);
+        this.issueForm.get('reportNumber').setValue(this.newReportNumber());
       }else{
         this.modal('','Error, Intente de nuevo')
       }
@@ -84,7 +92,7 @@ export class IssueComponent implements OnInit {
   }
 
   newReportNumber(){
-    return this.client.Id +'-'+ new Date().getTime();
+    return this.client.id +'-'+ new Date().getTime();
   }
 
 }
