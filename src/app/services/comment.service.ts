@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Comment } from '../models/comment.model';
+import { tap, catchError, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { Issue } from '../models/issue.model';
+
 
 const base_url = environment.base_url;
 
@@ -13,11 +14,10 @@ const httpOptions = {
   })
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class IssueService {
+export class CommentService {
 
   private extractData(res: Response) {
     let body = res;
@@ -26,33 +26,23 @@ export class IssueService {
 
   constructor( private http:HttpClient ) { }
 
-  
 
-  addIssue( issue: Issue ){
-    const url = `${base_url}/issue/add`;
-    return this.http.post<any>(url, JSON.stringify(issue), httpOptions)
+  addComment( comment: Comment ){
+    const url = `${base_url}/comment/add`;
+    return this.http.post<any>(url, JSON.stringify(comment), httpOptions)
     .pipe(
-      tap((issue) => console.log('added issue')),
-      catchError(this.handleError<any>('addIssue'))
+      tap((comment) => console.log('added comment')),
+      catchError(this.handleError<any>('addComment'))
     );
   }
-
-  getIssuesByClientId(id:number){
-    const url = `${base_url}/issue/issues/${id}`;
+  
+  getCommentByIssueId(id:number){
+    const url = `${base_url}/comment/comments/${id}`;
     return this.http.get(url).pipe(
     map(this.extractData),
     catchError(this.handleError<any>('getIssuesByClientId'))
     );
   }
-
-  getIssueById(id:number){
-    const url = `${base_url}/issue/${id}`;
-    return this.http.get(url).pipe(
-      map(this.extractData),
-      catchError(this.handleError<any>('getIssueById'))
-      );
-  }
-
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -67,9 +57,4 @@ export class IssueService {
       return of(result as T);
     };
   }
-
-
-
-
-
 }

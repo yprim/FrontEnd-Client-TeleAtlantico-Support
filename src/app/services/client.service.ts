@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Client } from '../models/client.model';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
@@ -23,13 +23,18 @@ export class ClientService {
   public client:Client;
   token: string = '';
 
-  constructor( private http:HttpClient ) { }
+  private saveToken(idClient: string){
+    this.token = idClient;
+    localStorage.setItem('token', this.token);
+ }
 
+ private extractData(res: Response) {
+  let body = res;
+  return body || { };
+}
 
-  private extractData(res: Response) {
-    let body = res;
-    return body || { };
-  }
+constructor( private http:HttpClient ) { }
+  
 
 listClients(){
   const url = `${base_url}/client/clients/`;
@@ -63,7 +68,6 @@ getClientById(id:number){
       catchError(this.handleError<any>('login')),
       map(resp =>{
         if(resp){
-          console.log(resp);          
           this.saveToken(resp.id);
           this.client = resp;
         }
@@ -73,13 +77,10 @@ getClientById(id:number){
   }
 
   isLogin(): boolean{
-    return parseInt( this.token) > 0;
+    return parseInt(this.token) > 0;
   }
 
-  private saveToken(idClient: string){
-    this.token = idClient;
-    localStorage.setItem('token', this.token);
- }
+
   
 logout(){
   localStorage.removeItem('token');

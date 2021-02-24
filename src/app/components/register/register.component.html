@@ -21,13 +21,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i>  </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('first_surname')" formControlName="first_surname" name="" class="form-control" placeholder="Primer Apellido" type="text">
+                    <input [class.is-invalid]="valueNoValid('firstSurname')" formControlName="firstSurname" name="" class="form-control" placeholder="Primer Apellido" type="text">
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('second_surname')" formControlName="second_surname" name="" class="form-control" placeholder="Segundo Apellido" type="text">
+                    <input [class.is-invalid]="valueNoValid('secondSurname')" formControlName="secondSurname" name="" class="form-control" placeholder="Segundo Apellido" type="text">
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -57,7 +57,7 @@
                     <select class="custom-select" style="max-width: 120px;">
 		                <option value="1">+506</option>
 		            </select>
-                    <input [class.is-invalid]="valueNoValid('second_contact')" formControlName="second_contact" name="" class="form-control" placeholder="Segundo Contacto" type="number" min="0" required>
+                    <input [class.is-invalid]="valueNoValid('secondContact')" formControlName="secondContact" name="" class="form-control" placeholder="Segundo Contacto" type="number" min="0" required>
                 </div>
 
                 <div class="form-group input-group">
@@ -81,7 +81,7 @@
                         </label>
                     </div>
                     <div class="form-check m-1">
-                        <input formControlName="mobile_phone" class="form-check-input" type="checkbox" id="mobilePhone">
+                        <input formControlName="mobilePhone" class="form-check-input" type="checkbox" id="mobilePhone">
                         <label class="form-check-label" for="mobilePhone">
                           Celular
                         </label>

@@ -14,9 +14,8 @@ export class LoginComponent implements OnInit {
 
   client:Client = new Client();
 
-
   public loginForm = this.fb.group({
-    email : ['test2@test.com',[ Validators.required, Validators.email]],
+    email : ['test11@test.com',[ Validators.required, Validators.email]],
     password : ['12345678',[ Validators.required, Validators.minLength(8)]],
   });
 

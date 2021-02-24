@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ModalService } from '../../services/modal.service';
+import { Issue } from '../../models/issue.model';
+import { IssueService } from '../../services/issue.service';
+import { ClientService } from '../../services/client.service';
+import { Comment } from '../../models/comment.model';
+import { CommentService } from '../../services/comment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-issues',
@@ -9,31 +14,28 @@ import { ModalService } from '../../services/modal.service';
 })
 export class IssuesComponent implements OnInit {
 
-  constructor( private modal:ModalService) { }
+  issues:Issue[]=[];
 
-  public modalSubs:Subscription;
+  constructor(  private issueService:IssueService,
+                private clientService:ClientService,
+                private commentService:CommentService,
+                private router:Router  ) { }
 
-  ngOnDestroy(): void {
-    this.modalSubs.unsubscribe(); 
-  } 
 
   ngOnInit(): void {
-    this.modalSubs = this.modal.newIssue
-      .subscribe( resp =>{ 
-//loadIssues
-      })
+    this.loadIssues();
   }
 
-  openModal(){
-    this.modal.openModal();
+  loadIssues(){
+    this.issueService.getIssuesByClientId(this.clientService.client.id)
+    .subscribe( issues => {
+        this.issues=issues;
+    })
   }
+  
 
   issueDetail(issueId:number){
-       
-    this.openModal();
-    console.log(issueId);
-    
-
+        this.router.navigateByUrl('issues-details/'+issueId);
   }
 
 }

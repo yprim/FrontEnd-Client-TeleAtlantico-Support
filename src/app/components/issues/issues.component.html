@@ -1,4 +1,3 @@
-<app-issue-modal></app-issue-modal>
 <app-nav-bar></app-nav-bar>
 <div class="container mt-5">
     <div class="response-table card bg-light">
@@ -16,34 +15,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>Fecha</th>
-                        <td>12345678</td>
-                        <td>Ingresado</td>
-                        <td>Telefonia</td>
+                    <tr *ngFor="let issue of issues">
+                        <th>{{ issue.creationDate | date }}</th>
+                        <td>{{ issue.reportNumber }}</td>
+                        <td>{{ issue.status }}</td>
+                        <td> {{ issue.service }}</td>
                         <td class="text-center">
-                            <a class="btn btn-outline-info" (click)="issueDetail(0)"> <i class="fa fa-folder"></i> </a>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <th>Fecha</th>
-                        <td>12345678</td>
-                        <td>Ingresado</td>
-                        <td>Telefonia</td>
-                        <td class="text-center">
-                            <a class="btn btn-outline-info" (click)="issueDetail(0)">
-                                <i class="fa fa-folder"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Fecha</th>
-                        <td>12345678</td>
-                        <td>Ingresado</td>
-                        <td>Telefonia</td>
-                        <td class="text-center">
-                            <a class="btn btn-outline-info" (click)="issueDetail(0)"> <i class="fa fa-folder"></i> </a>
+                            <a class="btn btn-outline-info" (click)="issueDetail(issue.id)"> <i class="fa fa-folder"></i> </a>
                         </td>
                     </tr>
                 </tbody>
