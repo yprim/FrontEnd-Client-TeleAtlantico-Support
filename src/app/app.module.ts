@@ -10,9 +10,9 @@ import { IssueComponent } from './components/issue/issue.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { IssuesComponent } from './components/issues/issues.component';
-import { IssueModalComponent } from './components/issue-modal/issue-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
+import { IssueDetailsComponent } from './components/issue-details/issue-details.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     NavBarComponent,
     HomeComponent,
     IssuesComponent,
-    IssueModalComponent,
-    ProfileComponent
+    ProfileComponent,
+    IssueDetailsComponent
   ],
   imports: [
     BrowserModule,

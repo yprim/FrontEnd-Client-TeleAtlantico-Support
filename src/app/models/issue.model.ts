@@ -1,7 +1,7 @@
 export class Issue{
 
     id: number=0;
-    report_number: string;
+    reportNumber: string;
     address:string;
     contactPhone:string;
     contactEmail:string;
@@ -11,7 +11,7 @@ export class Issue{
     idUser:number;
     creationDate: Date;
     creationUser: Date;
-    supportUser_asigned?:string;
+    supportUserAsigned?:string;
     updateDate?: Date;
     updateUser?: string;
 }

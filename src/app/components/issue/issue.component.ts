@@ -42,7 +42,7 @@ export class IssueComponent implements OnInit {
 
     if(this.issueForm.invalid){
       return;
-    }
+    } 
 
     if( this.issueForm.get("service").value == 0){
       return;

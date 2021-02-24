@@ -1,0 +1,78 @@
+<app-nav-bar></app-nav-bar>
+<div class="container mt-5">
+    <h4 class="card-title mt-3 text-center">Detalles de Solicitud</h4>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <section>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">
+                        <strong>Fecha:</strong>
+                    </li>
+                    <li class="list-group-item">{{ issue.creationDate | date}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><strong>Servicio:</strong></li>
+                    <li class="list-group-item">{{ issue.service}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Descripción:</strong></li>
+                    <li class="list-group-item">{{ issue.description}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Estado:</strong> </li>
+                    <li class="list-group-item">{{ issue.status}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Número de reporte:</strong> </li>
+                    <li class="list-group-item">{{ issue.reportNumber}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Dirección:</strong> </li>
+                    <li class="list-group-item">{{ issue.address}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Correo:</strong> </li>
+                    <li class="list-group-item">{{ issue.contactEmail}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Contacto:</strong> </li>
+                    <li class="list-group-item">{{ issue.contactPhone}}</li>
+                </ul>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"> <strong>Persona en cargada del caso:</strong> </li>
+                    <li class="list-group-item">{{ issue.supportUserAsigned}}</li>
+                </ul>
+            </section>
+
+        </div>
+        <div class="col-6">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">
+                    <strong>Comentarios:</strong>
+                </li>
+                <ng-template ngFor let-item [ngForOf]="comments" let-i="index">
+                    <li class="list-group-item">{{comments[i].description}} <span>({{ comments[i].creationDate}})</span></li>
+                </ng-template>
+
+                <li class="list-group-item">
+                    <div class="form-group input-group">
+                        <label for="">
+                            <strong>
+                                Agregar comentario:
+                            </strong>                            
+                        </label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i> </span>
+                        </div>
+                        <textarea class="form-control" placeholder="Descripción" type="text">
+                        </textarea>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
