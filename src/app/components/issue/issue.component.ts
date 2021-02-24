@@ -16,17 +16,17 @@ export class IssueComponent implements OnInit {
 
   public issueForm = this.fb.group({
     id: 0, 
-    id_user: this.client.id,    
-    report_number : this.newReportNumber(),
+    idUser: this.client.id,    
+    reportNumber : this.newReportNumber(),
     address : this.client.address,    
-    contact_phone : this.client.phone,
-    contact_email : this.client.email,
+    contactPhone : this.client.phone,
+    contactEmail : this.client.email,
     status : 'Ingresado', 
-    support_user_asigned : '',    
+    supportUserAsigned : '',    
     service :[0,[ Validators.required]],  
     description : ['',[ Validators.required]],
-    creation_Date: new Date(),
-    creation_User: this.client.id
+    creationDate: new Date(),
+    creationUser: this.client.id
   });
 
   constructor(private fb:FormBuilder,
@@ -44,13 +44,21 @@ export class IssueComponent implements OnInit {
       return;
     }
 
+    if( this.issueForm.get("service").value == 0){
+      return;
+    }
+
+    if( (this.issueForm.get("description").value).trim() == ''){
+      return;
+    }
+
     this.issueService.addIssue(this.issueForm.value)
     .subscribe( resp =>{
       if(resp > 0){
         this.modal('','Registro Exitoso');
         this.issueForm.get('description').setValue('');
         this.issueForm.get('service').setValue(0);
-        this.issueForm.get('report_number').setValue(this.newReportNumber());
+        this.issueForm.get('reportNumber').setValue(this.newReportNumber());
       }else{
         this.modal('','Error, Intente de nuevo')
       }
@@ -78,7 +86,7 @@ export class IssueComponent implements OnInit {
         }
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            //to do
+            //this.router.navigateByUrl(url);
           }
         })     
   }

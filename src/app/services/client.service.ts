@@ -63,6 +63,7 @@ getClientById(id:number){
       catchError(this.handleError<any>('login')),
       map(resp =>{
         if(resp){
+          console.log(resp);          
           this.saveToken(resp.id);
           this.client = resp;
         }

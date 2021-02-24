@@ -40,8 +40,6 @@ export class IssueModalComponent implements OnInit {
     this.modalService.closeModal();
   }
 
-  valueNoValid(value:string) {  
-    return this.issueForm.get(value).invalid && this.issueForm.get(value).touched
-  }
+ 
 
 }

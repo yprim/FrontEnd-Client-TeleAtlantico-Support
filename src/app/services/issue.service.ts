@@ -26,6 +26,8 @@ export class IssueService {
   }
 
   addIssue( issue: Issue ){
+
+    
     const url = `${base_url}/issue/add`;
 
     console.log(issue);

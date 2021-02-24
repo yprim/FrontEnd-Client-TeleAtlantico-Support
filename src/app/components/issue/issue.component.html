@@ -10,28 +10,28 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-info"></i> </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('report_number')" class="form-control" formControlName="report_number" [value]="issueForm.value.reportNumber" type="text" readonly>
+                    <input class="form-control" formControlName="reportNumber" type="text" readonly>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-location-arrow" aria-hidden="true"></i> </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('address')" class="form-control" formControlName="address" type="text" readonly>
+                    <input class="form-control" formControlName="address" type="text" readonly>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-phone" aria-hidden="true"></i> </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('contact_phone')" class="form-control" formControlName="contact_phone" type="number" readonly>
+                    <input class="form-control" formControlName="contactPhone" type="number" readonly>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope" aria-hidden="true"></i> </span>
                     </div>
-                    <input [class.is-invalid]="valueNoValid('contact_email')" class="form-control" formControlName="contact_email" type="email" readonly>
+                    <input class="form-control" formControlName="contactEmail" type="email" readonly>
                 </div>
 
                 <div class="form-group input-group">
@@ -49,9 +49,9 @@
                         </span>
                     </div>
                     <select formControlName="service" class="custom-select">
-                        <option value="0">Seleccione un servicio</option>
+                        <option value='0'>Seleccione un servicio</option>
                         <option *ngIf="client.telephone == 1" value="Teléfono">Teléfono</option>
-                        <option *ngIf="client.mobile_phone == 1" value="Celular">Celular</option>
+                        <option *ngIf="client.mobilePhone == 1" value="Celular">Celular</option>
                         <option *ngIf="client.television == 1" value="Televisión">Televisión</option>
                         <option *ngIf="client.internet == 1" value="Internet">Internet</option>
                     </select>
