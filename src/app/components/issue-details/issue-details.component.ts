@@ -28,7 +28,7 @@ export class IssueDetailsComponent implements OnInit {
     this.issueService.getIssueById(this.route.snapshot.params['id'])
     .subscribe( issue => {
       this.issue = issue;
-      this.loadComments(this.issue.id);  
+      this.loadComments(this.issue.reportNumber);  
     });  
   }
 
