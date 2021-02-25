@@ -55,9 +55,10 @@ getClientById(id:number){
 
  addClient( client: Client ){
     const url = `${base_url}/client/add`;
-    return this.http.post<any>(url, JSON.stringify(client), httpOptions).pipe(
-      tap((client) => console.log('added client')),
-      catchError(this.handleError<any>('addClient'))
+    return this.http.post<any>(url, JSON.stringify(client), httpOptions)
+    .pipe(
+      tap((client) => console.log('added client'))
+      //,catchError(this.handleError<any>('addClient'))
     );
   }
 
