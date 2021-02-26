@@ -28,10 +28,10 @@
                         <td>{{client.secondContact}}</td>
                         <td>{{client.email}}</td>
                         <td>
-                            <h6 *ngIf="client.telephone == 1"> Telefono, </h6>
+                            <h6 *ngIf="client.telephone == 1"> Telefonía fija, </h6>
                             <h6 *ngIf="client.internet == 1"> Internet, </h6>
-                            <h6 *ngIf="client.mobilePhone == 1"> Célular, </h6>
-                            <h6 *ngIf="client.television == 1"> Televisión </h6>
+                            <h6 *ngIf="client.mobilePhone == 1"> Telefonía móvil, </h6>
+                            <h6 *ngIf="client.television == 1"> Cable </h6>
                         </td>
                         <td>{{client.creationDate | date }}</td>
 

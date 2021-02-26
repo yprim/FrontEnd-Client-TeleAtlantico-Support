@@ -50,9 +50,9 @@
                     </div>
                     <select formControlName="service" class="custom-select">
                         <option value='0'>Seleccione un servicio</option>
-                        <option *ngIf="client.telephone == 1" value="Teléfono">Teléfono</option>
-                        <option *ngIf="client.mobilePhone == 1" value="Celular">Celular</option>
-                        <option *ngIf="client.television == 1" value="Televisión">Televisión</option>
+                        <option *ngIf="client.telephone == 1" value="Telefonía fija">Teléfono</option>
+                        <option *ngIf="client.mobilePhone == 1" value="Telefonía móvil">Celular</option>
+                        <option *ngIf="client.television == 1" value="Cable">Televisión</option>
                         <option *ngIf="client.internet == 1" value="Internet">Internet</option>
                     </select>
                 </div>
