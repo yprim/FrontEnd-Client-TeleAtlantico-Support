@@ -59,7 +59,7 @@ export class IssueDetailsComponent implements OnInit {
     }
     this.commentForm.get('reportNumber').setValue(this.issue.reportNumber);
     this.commentForm.get('creationUser').setValue(this.clientService.client.name);
-
+    
     this.commentService.addComment(this.commentForm.value)
     .subscribe( resp =>{
       this.loadComments(this.issue.reportNumber);   
