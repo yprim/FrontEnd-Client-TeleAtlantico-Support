@@ -1,6 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <div class="container mt-5">
-    <div class="response-table card bg-light">
+    <div *ngIf="!issues" class="loader">Loading...</div>
+
+    <div *ngIf="issues" class="response-table card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Historial de Solicitudes</h4>
             <hr>

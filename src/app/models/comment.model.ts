@@ -5,14 +5,7 @@ export class Comment{
     idIssue:number;
     reportNumber: string;
     creationDate: Date;
-    creationUser: Date;
+    creationUser: String;
     updateDate?: Date;
     updateUser?: string;
-
-
-
-
-
-
-
 }

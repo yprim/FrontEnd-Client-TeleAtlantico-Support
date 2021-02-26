@@ -36,8 +36,8 @@ export class CommentService {
     );
   }
   
-  getCommentByIssueId(id:String){
-    const url = `${base_url}/comment/comments/${id}`;
+  getCommentByIssueId(reportNumber:String){
+    const url = `${base_url}/comment/comments/${reportNumber}`;
     return this.http.get(url).pipe(
     map(this.extractData),
     catchError(this.handleError<any>('getIssuesByClientId'))

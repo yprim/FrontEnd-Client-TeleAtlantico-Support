@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/client.model';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   client:Client = new Client();
 
   public loginForm = this.fb.group({
-    email : ['test11@test.com',[ Validators.required, Validators.email]],
+    email : ['maria@gmail.com',[ Validators.required, Validators.email]],
     password : ['12345678',[ Validators.required, Validators.minLength(8)]],
   });
 
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
     .subscribe( client =>{
        if(client)   {
         this.client = client;
-        this.modal('/home','Bienvenido: '+ this.client.name);            
+        this.modal('/home','Bienvenido: '+ (this.client.name).toUpperCase() +' '+(this.client.firstSurname).toUpperCase());            
        }else{
         this.modal('','Error al autentificar')
        }   

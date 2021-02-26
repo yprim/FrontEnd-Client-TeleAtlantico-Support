@@ -24,9 +24,7 @@ export class IssueService {
     return body || { };
   }
 
-  constructor( private http:HttpClient ) { }
-
-  
+  constructor( private http:HttpClient ) { }  
 
   addIssue( issue: Issue ){
     const url = `${base_url}/issue/add`;
