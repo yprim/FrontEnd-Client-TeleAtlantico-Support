@@ -25,7 +25,10 @@
                     <a class="nav-link ml-5 mr-5"></a>
                 </li>
                 <li class="nav-item mr-5">
-                    <a class="nav-link ml-5 mr-5"></a>
+                    <a class="nav-link ml-4 mr-4"></a>
+                </li>
+                <li class="nav-item ml-2 mr-2">
+                    <p> {{ client.name | uppercase }} {{ client.firstSurname | uppercase }} {{ client.secondSurname | uppercase }}</p>
                 </li>
                 <li class="nav-item ml-5">
                     <a class="ml-5 nav-link" href="" (click)="logout()">Salir</a>
