@@ -29,18 +29,19 @@ export class CommentService {
 
   addComment( comment: Comment ){
     const url = `${base_url}/comment/add`;
+    console.log("comentario agregado");
     return this.http.post<any>(url, JSON.stringify(comment), httpOptions)
     .pipe(
-      tap((comment) => console.log('added comment')),
+      map(this.extractData),
       catchError(this.handleError<any>('addComment'))
-    );
+      );
   }
   
   getCommentByIssueId(reportNumber:String){
     const url = `${base_url}/comment/comments/${reportNumber}`;
     return this.http.get(url).pipe(
     map(this.extractData),
-    catchError(this.handleError<any>('getIssuesByClientId'))
+    catchError(this.handleError<any>('getCommentByIssueId'))
     );
   }
 

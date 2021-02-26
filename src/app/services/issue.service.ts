@@ -30,8 +30,8 @@ export class IssueService {
     const url = `${base_url}/issue/add`;
     return this.http.post<any>(url, JSON.stringify(issue), httpOptions)
     .pipe(
-      tap((issue) => console.log('added issue')),
-      catchError(this.handleError<any>('addIssue'))
+      map(this.extractData),
+    catchError(this.handleError<any>('getIssuesByClientId'))
     );
   }
 

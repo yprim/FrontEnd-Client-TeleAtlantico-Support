@@ -54,14 +54,12 @@ export class IssueComponent implements OnInit {
 
     this.issueService.addIssue(this.issueForm.value)
     .subscribe( resp =>{
-      if(resp > 0){
+     
         this.modal('','Registro Exitoso');
         this.issueForm.get('description').setValue('');
         this.issueForm.get('service').setValue(0);
         this.issueForm.get('reportNumber').setValue(this.newReportNumber());
-      }else{
-        this.modal('','Error, Intente de nuevo')
-      }
+     
     });
     
   }
